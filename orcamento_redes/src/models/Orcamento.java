@@ -20,14 +20,14 @@ public class Orcamento {
 	private DecimalFormat df = new DecimalFormat("#.00");
 
 	// Construtores
-	public Orcamento(String id, String fornecedor, String produto, String preco, String maisBarato) {
+	public Orcamento(String id, String fornecedor, String produto, String preco/*, String maisBarato*/) {
 		df.setCurrency(Currency.getInstance(BRASIL));
 		try {
 			this.id = Integer.parseInt(id);
 			this.fornecedor = fornecedor;
 			this.produto = produto;
 			this.preco = Double.parseDouble(df.parse(preco).toString());
-			this.maisBarato = Boolean.parseBoolean(maisBarato);
+			//this.maisBarato = Boolean.parseBoolean(maisBarato);
 		} catch (ParseException e) {
 			System.out.println(e);
 		}
@@ -110,6 +110,10 @@ public class Orcamento {
 	public String toString() {
 		return "Orcamento [id=" + id + ", fornecedor=" + fornecedor + ", produto=" + produto + ", preco=" + preco
 				+ ", maisBarato=" + maisBarato + "]";
+	}
+
+	public char[] toCSV() {
+		return null;
 	}
 	
 	/*

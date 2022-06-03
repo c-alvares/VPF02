@@ -1,0 +1,17 @@
+package viewers;
+
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class OrcamentoForm extends JFrame implements ActionListener {
+
+	private static final long serialVersionUID = 3L;
+	private JPanel painel;
+	private JLabel id, fornecedor, produto, preco;
+	private JTextField tfId, tfFornecedor, tfProduto, tfPreco;
+	
+}

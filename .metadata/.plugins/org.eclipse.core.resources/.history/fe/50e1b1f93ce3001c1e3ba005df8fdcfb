@@ -1,0 +1,28 @@
+package viewers;
+
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
+public class OrcamentoForm extends JFrame implements ActionListener {
+
+	private static final long serialVersionUID = 3L;
+	private JPanel painel;
+	private JLabel id, fornecedor, produto, preco;
+	private JTextField tfId, tfFornecedor, tfProduto, tfPreco;
+	private JComboBox<String> cbProduto;
+	private JScrollPane rolagem;
+	private JTable table;
+	private DefaultTableModel tableModel;
+	private JButton create, read, update, delete;
+	
+	private int autoId = OrcamentoProcess.orcamento.get(OrcamentoProcess.orcamento.size() - 1).getId() + 1;
+}

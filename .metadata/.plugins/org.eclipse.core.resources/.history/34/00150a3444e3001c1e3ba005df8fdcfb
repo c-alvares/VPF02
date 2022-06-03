@@ -1,0 +1,12 @@
+package controllers;
+
+import java.util.ArrayList;
+
+import dao.OrcamentoDAO;
+import models.Orcamento;
+
+public class OrcamentoProcess {
+
+	public static ArrayList<Orcamento> orcamentos = new ArrayList<>();
+	private static OrcamentoDAO sd = new OrcamentoDAO();
+}
