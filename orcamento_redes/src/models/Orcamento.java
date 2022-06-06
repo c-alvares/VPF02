@@ -1,40 +1,44 @@
 package models;
 
 import java.text.DecimalFormat;
-import java.text.ParseException;
 import java.util.Currency;
 import java.util.Locale;
 import java.util.Objects;
 
 public class Orcamento {
 
-	// Atributos do Modelo
 	private int id;
 	private String fornecedor;
 	private String produto;
 	private double preco;
 	private boolean maisBarato;
 
-	// Atributos de Formatação dos Decimais
 	private final Locale BRASIL = new Locale("pt", "BR");
 	private DecimalFormat df = new DecimalFormat("#.00");
 
-	// Construtores
-	public Orcamento(String id, String fornecedor, String produto, String preco/*, String maisBarato*/) {
-		df.setCurrency(Currency.getInstance(BRASIL));
-		try {
-			this.id = Integer.parseInt(id);
-			this.fornecedor = fornecedor;
-			this.produto = produto;
-			this.preco = Double.parseDouble(df.parse(preco).toString());
-			//this.maisBarato = Boolean.parseBoolean(maisBarato);
-		} catch (ParseException e) {
-			System.out.println(e);
-		}
-
+	public Orcamento(int id) {
+		this.id = id;
 	}
 
-	// Getters && Setters
+	
+	public Orcamento(int id, String fornecedor, String produto, String preco) {
+		this.id = id;
+		this.fornecedor = fornecedor;
+		this.produto = produto;
+		this.preco = Double.parseDouble(preco);
+		
+	}
+
+	
+	public Orcamento(String linha) {
+		df.setCurrency(Currency.getInstance(BRASIL));
+		
+		this.id = Integer.parseInt(linha.split(";")[0]);
+		this.fornecedor = linha.split(";")[1];
+		this.produto = linha.split(";")[2];
+		this.preco =Double.parseDouble (linha.split(";")[3]);
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -87,7 +91,6 @@ public class Orcamento {
 		this.maisBarato = maisBarato;
 	}
 
-	// Definindo o id como Chave
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -105,22 +108,14 @@ public class Orcamento {
 		return id == other.id;
 	}
 
-	//Métodos de Saída
 	@Override
 	public String toString() {
-		return "Orcamento [id=" + id + ", fornecedor=" + fornecedor + ", produto=" + produto + ", preco=" + preco
-				+ ", maisBarato=" + maisBarato + "]";
+		return id + "\t" + fornecedor + "\t" + produto + "\t" + preco + "\n";
 	}
 
-	public char[] toCSV() {
-		return null;
+	public String toCSV() {
+		return id + ";" + fornecedor + ";" + produto + ";" + String.format("%.2f", preco) + "\r\n";
 	}
 	
-	/*
-	 * Métodos de Saída para tela simples, arquivo e vetor/tabela
-		@Override
-		public String toString() {
-			return getId("") + "\t" + getFornecedor("") + "\t" + produto + "\t" + getPreco("") + "\t" + getMaisBarato("") + "\n";
-		} 
-	*/
+	
 }
