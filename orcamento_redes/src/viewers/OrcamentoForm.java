@@ -41,7 +41,7 @@ public class OrcamentoForm extends JFrame implements ActionListener {
 		setTitle("Orçamento de Redes");
 		setBounds(100, 100, 800, 600);
 		painel = new JPanel();
-		painel.setBackground(new Color(105, 105, 105));
+		painel.setBackground(new Color(200, 200, 200));
 		setContentPane(painel);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(null);
@@ -58,7 +58,7 @@ public class OrcamentoForm extends JFrame implements ActionListener {
 		preco = new JLabel("Preço:");
 		preco.setBounds(20, 125, 120, 30);
 		painel.add(preco);
-		rotulos = new JLabel("Id | Fornecedor | Produto | Preço");
+		rotulos = new JLabel("Id|Fornecedor|Produto|Preço");
 		rotulos.setBounds(20, 310, 500, 30);
 		painel.add(rotulos);
 
@@ -88,13 +88,13 @@ public class OrcamentoForm extends JFrame implements ActionListener {
 		update = new JButton("Atualizar");
 		delete = new JButton("Excluir");
 		create.setBounds(600, 25, 110, 40);
-		create.setBackground(new Color(0, 191, 255));
+		create.setBackground(new Color(207, 215, 255));
 		create.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
 		read.setBounds(600, 75, 110, 40);
-		read.setBackground(new Color(0, 191, 255));
+		read.setBackground(new Color(207, 215, 255));
 		read.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
 		update.setBounds(600, 125, 110, 40);
-		update.setBackground(new Color(0, 191, 255));
+		update.setBackground(new Color(207, 215, 255));
 		delete.setBounds(600, 175, 110, 40);
 		update.setEnabled(false);
 		delete.setEnabled(false);
